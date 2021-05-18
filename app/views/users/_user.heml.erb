@@ -1,10 +1,9 @@
-<!--後で部分テンプレートにするところ-->
-
+<!--左側上の投稿画面-->
 <table class="table table-user">
   <h2>User info</h2>
   <thead>
     <tr>
-      <%= f.attachment_image_tag @user, :profile_image, format:'jpeg',size: "100x100" fallback: "no_image.jpg" %>
+      <%= f.attachment_image_tag user, :profile_image, format:'jpeg',size: "100x100" fallback: "no_image.jpg" %>
     </tr>
   </thead>
   <tbody>
@@ -23,4 +22,5 @@
     </tr>
   </tbody>
 </table>>
-<!--後で部分テンプレートにするところ-->
+  
+  

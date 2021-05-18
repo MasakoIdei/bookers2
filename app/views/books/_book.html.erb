@@ -1,0 +1,29 @@
+<!--右側のタイトル-->
+<h1>Books</h1>
+  <table>
+    <thead>
+      <tr>
+       <th>Title</th>
+       <th>Body</th>
+      </tr>
+    </thead>
+    <!--右側の繰り返し表示のテンプレ-->
+    <tbody>
+      <% books.each do |book| %>
+      <tr>
+       <td>
+        <!--画像表示-->
+       </td>
+       <td>
+        <%= book.title %>
+       </td>
+       <td>
+        <%= book.body %>
+       </td>
+      </tr>
+       <% end %>
+    </tbody>
+
+ </table>
+       
+       

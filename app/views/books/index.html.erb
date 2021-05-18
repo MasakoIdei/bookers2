@@ -1,0 +1,49 @@
+<table class="table table-user">
+  <h2>User info</h2>
+  <thead>
+    <tr>
+      
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Name</th>
+      <th><%= @user.name %></th>
+    </tr>
+    <tr>
+      <th>Introduction</th>
+      <th><%= @user.introduction %></th>
+    </tr>
+    <tr>
+      <th>
+        <%= link_to edit_user_path(@user.id) %>
+      </th>
+    </tr>
+  </tbody>
+</table>>
+<%= render 'books/book', books: @books %>
+
+<!--左側下の投稿画面-->
+  <h2>New book</h2>
+  <% if @book.errors.any? %>
+    <h3><%= @book.errors.count %> errors prohibited this book from being saved:</h3>
+    <ul>
+      <% @book.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
+  <!--新規投稿機能-->
+  <%= form_with model:@post,local:true do |f| %>
+
+   <h4>Title</h4>
+   <%= f.text_field :title %>
+
+    <h4>Body</h4>
+    <%= f.text_area :body %>
+
+    <br><%= f.submit 'Create Book' %></br>
+
+
+
+    <% end %>
