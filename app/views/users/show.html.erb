@@ -9,13 +9,13 @@
   <%= @user.introduction %>
 
 
-  <%= link_to "edit", edit_user_path(@user.id) %>
+  <%= link_to "edit", edit_user_path(current_user) %>
 
 <!--画面下側の部分-->
-　<h2>New book</h2>
+ <h2>New book</h2>
 
-　<%= form_with model:@book, local:true do |f| %>
-　   <h3>Title</h3>
+  <%= form_with model:@book, local:true do |f| %>
+     <h3>Title</h3>
      <%= f.text_field :title %>
      <h3>Opinion</h3>
      <%= f.text_area :body %>
@@ -38,14 +38,12 @@
        <td>
          <%= attachment_image_tag book.user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
        </td>
-       <td>
-        <a><%= book.title %></a>
-       </td>
+       <td><%= link_to book.title,book_path(book.id) %></td>
        <td>
         <%= book.body %>
        </td>
       </tr>
        <% end %>
-    </tbody>
+     </tbody>
 
  </table>
