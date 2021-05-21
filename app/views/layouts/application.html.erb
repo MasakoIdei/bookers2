@@ -52,6 +52,15 @@
   </nav>
 </header>
     <main class="mb-auto">
+
+  <div class= "body">
+
+    <% if flash[:notice] %>
+      <div class="flash">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
+  </div>
     <%= yield %>
     </main>
     <footer>
