@@ -20,30 +20,30 @@
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto">
           <% if user_signed_in? %>
-             <li class="nav-item">
-        <%= link_to "Home", user_path(current_user), class: 'nav-link text-right' %>
+            <li class="nav-item">
+              <%= link_to "Home", user_path(current_user), class: 'nav-link text-right fas fa-home' %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "Users", users_path, class: 'nav-link text-right fas fa-users' %>
+            </li>
+      <li class="nav-item">
+        <%= link_to "Books", books_path, class: 'nav-link text-right fas fa-book-open' %>
       </li>
       <li class="nav-item">
-        <%= link_to "Users", users_path, class: 'nav-link text-right' %>
-      </li>
-      <li class="nav-item">
-        <%= link_to "Books", books_path, class: 'nav-link text-right' %>
-      </li>
-      <li class="nav-item">
-        <%= link_to "logout", destroy_user_session_path, method: :delete, class: 'nav-link text-right' %>
+        <%= link_to "logout", destroy_user_session_path, method: :delete, class: 'nav-link text-right fas fa-sign-out-alt' %>
       </li>
             <% else %>
             <li class="nav-item">
-        <%= link_to "Home", root_path, class: 'nav-link text-right' %>
+        <%= link_to "Home", root_path, class: 'nav-link text-right fas fa-home' %>
       </li>
       <li class="nav-item">
-        <%= link_to "About", home_about_path, class: 'nav-link text-right' %>
+        <%= link_to "About", home_about_path, class: 'nav-link text-right fas fa-link' %>
       </li>
       <li class="nav-item">
-        <%= link_to "Sign Up", new_user_registration_path, class: 'nav-link text-right' %>
+        <%= link_to "Sign Up", new_user_registration_path, class: 'nav-link text-right fas fa-user-plus' %>
       </li>
       <li class="nav-item">
-        <%= link_to "login", new_user_session_path, class: 'nav-link text-right' %>
+        <%= link_to "login", new_user_session_path, class: 'nav-link text-right fas fa-sign-in-alt' %>
       </li>
       <% end %>
         </ul>
