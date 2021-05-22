@@ -1,52 +1,31 @@
 <%= flash[:notice] %><!--フラッシュメッセージ表示-->
+<% if @book.errors.any? %>
+  <%= @book.errors.count %>error prohibited this obj from being saved:
+  <% @book.errors.full_messages.each do |message| %>
+    <%= message %>
+  <% end %>
+<% end %>
 
 <div class= "row">
 
-<!--User info-->
+<!--User InfoからBook newまでをrender-->
   <div class= "col-md-3">
-    <h2>User info</h2>
-    <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg"%>
-    <table class="table">
-      <tr></tr>
-      <tr>
-        <th>name</th>
-        <th><%= @user.name %></th>
-      </tr>
-      <tr>
-        <th>introduction</th>
-        <th><%= @user.introduction %></th>
-      </tr>
-    </table>
-    <div class="row">
-        <%= link_to edit_user_path(@user.id),class:"btn btn-outline-secondary btn-lg btn-block fas fa-user-cog" do %>
-        <% end %>
-    </div>
-
-<!--New Book-->
-    <h2 clsss="mt-3">New book</h2>
-    <%= form_with model:@book, local:true do |f| %>
-     <div class="form-group">
-       <%= f.label :Title %><br>
-       <%= f.text_field :title %>
-     </div> 
-     <div class="form-group">
-       <%= f.label :Opinion %><br>
-       <%= f.text_area :body %>
-     </div> 
-       <%= f.submit 'Create Book',class: "btn btn-success" %>
-    <% end %>
+   <%= render 'users/user', user: @user %>
+   <%= render 'books/new_book', book: @book %>
   </div>
-  
+<!--User InfoからBook newまでをrender-->
+
 <!--Books-->
   <div class="col-md-8 offset-md-1">
+
 
   <h1>Books</h1>
   <table class= "table table-hover table">
     <thead>
       <tr>
+        <th></th>
        <th>Title</th>
        <th>Opinion</th>
-       <th></th>
       </tr>
     </thead>
     <!--右側の繰り返し表示のテンプレ-->
