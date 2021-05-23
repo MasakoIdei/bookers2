@@ -28,7 +28,7 @@ class BooksController < ApplicationController
 
     def edit
     @book = Book.find(params[:id])
-     if @book.user != current_user
+     if @book.user != current_user#作成ユーザーとログイン中のユーザーが同一人物でない場合
         redirect_to books_path
      #else
         #render "edit"なくても動く
