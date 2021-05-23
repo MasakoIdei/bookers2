@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
 
+
   def show
     @user = User.find(params[:id])#index画面から送られてきたULR：を受け取る
     @books = @user.books# userのBooksを表示する

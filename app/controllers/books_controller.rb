@@ -22,17 +22,17 @@ class BooksController < ApplicationController
   def show
     @book=Book.find(params[:id])
     @user=@book.user
-    @book_ = Book.new
+    @book_new = Book.new
   end
 
 
     def edit
     @book = Book.find(params[:id])
-    if @book.user =! current_user
+     if @book.user != current_user
         redirect_to books_path
-    else
-        render "edit"
-    end
+     #else
+        #render "edit"なくても動く
+     end
     end
 
 
